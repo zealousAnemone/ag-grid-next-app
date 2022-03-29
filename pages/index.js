@@ -13,17 +13,25 @@ export default function Home() {
       .then((data) => setRowData(data.rows));
   }, []);
 
+  const defaultColDef = {
+    resizable: true,
+    sortable: true,
+  };
   const [columnDefs] = useState([
     { field: 'id' },
-    { field: 'first_name' },
-    { field: 'last_name' },
-    { field: 'job_title' },
+    { headerName: 'First Name', field: 'first_name' },
+    { headerName: 'Last Name', field: 'last_name' },
+    { headerName: 'Job Title', field: 'job_title' },
     { field: 'email' },
   ]);
 
   return (
-    <div className="ag-theme-alpine" style={{ height: 400, width: 800 }}>
-      <AgGridReact rowData={rowData} columnDefs={columnDefs}></AgGridReact>
+    <div className="ag-theme-alpine" style={{ height: 500, width: '100%' }}>
+      <AgGridReact
+        rowData={rowData}
+        defaultColDef={defaultColDef}
+        columnDefs={columnDefs}
+      ></AgGridReact>
     </div>
   );
 }
