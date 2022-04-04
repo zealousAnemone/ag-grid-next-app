@@ -1,8 +1,7 @@
 import { Pool } from 'pg';
 
 let connection = new Pool({
-  connectionString:
-    'postgres://vdvzxfsg:tCsajkTNPcuSHKiRIDkN8u98PeJwn_Lu@raja.db.elephantsql.com/vdvzxfsg',
+  connectionString: process.env.CONNECTION_STRING,
 });
 
 export default connection;
