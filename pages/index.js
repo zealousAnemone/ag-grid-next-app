@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { AgGridReact } from 'ag-grid-react';
 
@@ -10,7 +10,7 @@ const Home = () => {
   const router = useRouter();
   const [rowData, setRowData] = useState([]);
 
-  const onGridReady = useCallback((params) => {
+  useEffect(() => {
     fetch('../api/staff')
       .then((response) => response.json())
       .then((data) => setRowData(data.rows));
@@ -33,19 +33,15 @@ const Home = () => {
   ]);
 
   return (
-    <div
-      id="staff_grid"
-      className="ag-theme-alpine"
-      style={{ height: '600px' }}
-    >
+    <div className="ag-theme-alpine" style={{ height: '600px' }}>
       <AgGridReact
+        id="staff_grid"
         ref={gridRef}
         rowData={rowData}
         defaultColDef={defaultColDef}
         columnDefs={columnDefs}
         onSelectionChanged={onSelectionChanged}
         rowSelection={'single'}
-        onGridReady={onGridReady}
         style={{ height: '100%', width: '100%' }}
       ></AgGridReact>
     </div>
