@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This is a demo app demonstrating the use of NextJS and AG Grid to create a simple data grid that displays information about people.
+
 ## Getting Started
 
 First, install dependencies using `npm install`.
