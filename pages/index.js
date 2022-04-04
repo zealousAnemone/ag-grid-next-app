@@ -30,6 +30,9 @@ const Home = () => {
     { headerName: 'First Name', field: 'first_name' },
     { headerName: 'Last Name', field: 'last_name' },
     { headerName: 'Job Title', field: 'job_title' },
+    { field: 'office' },
+    { field: 'email' },
+    { field: 'phone' },
   ]);
 
   return (
